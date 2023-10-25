@@ -4,6 +4,17 @@
 [![Version](https://img.shields.io/jetbrains/plugin/v/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/PLUGIN_ID)
 [![Downloads](https://img.shields.io/jetbrains/plugin/d/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/PLUGIN_ID)
 
+A simple IntelliJ IDEA / Android Studio plugin to create a text file with the following characteristics:
+1. In the `changelog` folder in the root project folder.
+2. Named after the current git branch.
+3. Prepolulated with 🐛🕶⭐⛳ emojis to select the correct one and the last commit message in the current branch.
+
+## Usage
+
+1. Press Shift twice (or cmd-shift-A).
+2. Search for `Create changelog file`.
+3. Press enter.
+
 ## Template ToDo list
 - [x] Create a new [IntelliJ Platform Plugin Template][template] project.
 - [ ] Get familiar with the [template documentation][template].
