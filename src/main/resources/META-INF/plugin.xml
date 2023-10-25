@@ -1,18 +1,23 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
     <id>com.github.afzalive.createchangelogintellijplugin</id>
-    <name>create-changelog-intellij-plugin Template</name>
+    <name>Create Changelog File</name>
     <vendor>afzalive</vendor>
 
     <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.vcs</depends>
+    <depends>Git4Idea</depends>
 
     <resource-bundle>messages.MyBundle</resource-bundle>
 
-    <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="com.github.afzalive.createchangelogintellijplugin.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
-    </extensions>
+<!--    <extensions defaultExtensionNs="com.intellij">-->
+<!--        <toolWindow-->
+<!--            factoryClass="com.github.afzalive.createchangelogintellijplugin.toolWindow.MyToolWindowFactory"-->
+<!--            id="MyToolWindow"/>-->
+<!--    </extensions>-->
 
-    <applicationListeners>
-        <listener class="com.github.afzalive.createchangelogintellijplugin.listeners.MyApplicationActivationListener" topic="com.intellij.openapi.application.ApplicationActivationListener"/>
-    </applicationListeners>
+    <actions>
+        <action id="CreateChangelog" text="Create changelog file"
+                class="com.github.afzalive.createchangelogintellijplugin.actions.CreateChangelogAction"/>
+    </actions>
 </idea-plugin>
