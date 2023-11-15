@@ -1,6 +1,6 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
-    <id>com.github.afzalive.createchangelogintellijplugin</id>
+    <id>com.afzaln.changelogcreator</id>
     <name>Create Changelog File</name>
     <vendor>afzalive</vendor>
 
@@ -10,14 +10,18 @@
 
     <resource-bundle>messages.MyBundle</resource-bundle>
 
-<!--    <extensions defaultExtensionNs="com.intellij">-->
-<!--        <toolWindow-->
-<!--            factoryClass="com.github.afzalive.createchangelogintellijplugin.toolWindow.MyToolWindowFactory"-->
-<!--            id="MyToolWindow"/>-->
-<!--    </extensions>-->
+    <extensions defaultExtensionNs="com.intellij">
+        <applicationService
+            serviceImplementation="com.afzaln.changelogcreator.settings.ChangelogSettings"/>
+        <applicationConfigurable
+            parentId="tools"
+            instance="com.afzaln.changelogcreator.ChangelogConfigurable"
+            id="settings.changelogcreator"
+            displayName="Changelog Creator"/>
+    </extensions>
 
     <actions>
         <action id="CreateChangelog" text="Create changelog file"
-                class="com.github.afzalive.createchangelogintellijplugin.actions.CreateChangelogAction"/>
+                class="com.afzaln.changelogcreator.actions.CreateChangelogAction"/>
     </actions>
 </idea-plugin>

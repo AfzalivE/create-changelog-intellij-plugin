@@ -1,4 +1,4 @@
-package com.github.afzalive.createchangelogintellijplugin.toolWindow
+package com.afzaln.changelogcreator.toolWindow
 
 import com.intellij.openapi.components.service
 import com.intellij.openapi.diagnostic.thisLogger
@@ -8,8 +8,8 @@ import com.intellij.openapi.wm.ToolWindowFactory
 import com.intellij.ui.components.JBLabel
 import com.intellij.ui.components.JBPanel
 import com.intellij.ui.content.ContentFactory
-import com.github.afzalive.createchangelogintellijplugin.MyBundle
-import com.github.afzalive.createchangelogintellijplugin.services.MyProjectService
+import com.afzaln.changelogcreator.MyBundle
+import com.afzaln.changelogcreator.services.MyProjectService
 import javax.swing.JButton
 
 

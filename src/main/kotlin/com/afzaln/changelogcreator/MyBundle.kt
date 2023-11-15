@@ -1,4 +1,4 @@
-package com.github.afzalive.createchangelogintellijplugin
+package com.afzaln.changelogcreator
 
 import com.intellij.DynamicBundle
 import org.jetbrains.annotations.NonNls
