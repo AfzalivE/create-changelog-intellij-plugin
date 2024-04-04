@@ -4,6 +4,22 @@
 
 ## [Unreleased]
 
+## [0.0.3] - 2024-04-03
+
+### Added
+
+- Support IntelliJ 241.* based IDEs
+
+### Fixed
+
+- Default changelog template ⛳️ emoji (internal)
+
+## [0.0.2] - 2023-11-15
+
+### Added
+
+- Configurable changelog template setting
+
 ## [0.0.1] - 2023-10-17
 
 ### Added

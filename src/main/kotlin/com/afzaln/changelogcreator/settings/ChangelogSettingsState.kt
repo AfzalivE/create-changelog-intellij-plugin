@@ -22,5 +22,5 @@ class ChangelogSettings : SimplePersistentStateComponent<ChangelogState>(Changel
 }
 
 class ChangelogState : BaseState() {
-    var changelogTemplate by string("🐛🕶⭐⛳")
+    var changelogTemplate by string("🐛🕶⭐⛳️")
 }
