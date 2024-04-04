@@ -26,5 +26,7 @@
 
 - Initial scaffold created from [IntelliJ Platform Plugin Template](https://github.com/JetBrains/intellij-platform-plugin-template)
 
-[Unreleased]: https://github.com/AfzalivE/create-changelog-intellij-plugin/compare/v0.0.1...HEAD
+[Unreleased]: https://github.com/AfzalivE/create-changelog-intellij-plugin/compare/v0.0.3...HEAD
+[0.0.3]: https://github.com/AfzalivE/create-changelog-intellij-plugin/compare/v0.0.2...v0.0.3
+[0.0.2]: https://github.com/AfzalivE/create-changelog-intellij-plugin/compare/v0.0.1...v0.0.2
 [0.0.1]: https://github.com/AfzalivE/create-changelog-intellij-plugin/commits/v0.0.1
