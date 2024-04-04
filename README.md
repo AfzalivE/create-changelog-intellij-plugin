@@ -28,11 +28,9 @@ A simple IntelliJ IDEA / Android Studio plugin to create a text file with the fo
 - [ ] Click the <kbd>Watch</kbd> button on the top of the [IntelliJ Platform Plugin Template][template] to be notified about releases containing new features and fixes.
 
 <!-- Plugin description -->
-This Fancy IntelliJ Platform Plugin is going to be your implementation of the brilliant ideas that you have.
+This plugin helps you create a changelog file with a filename based on your current Git branch.
 
-This specific section is a source for the [plugin.xml](/src/main/resources/META-INF/plugin.xml) file which will be extracted by the [Gradle](/build.gradle.kts) during the build process.
-
-To keep everything working, do not remove `<!-- ... -->` sections. 
+It also lets you specify a template in settings.
 <!-- Plugin description end -->
 
 ## Installation
