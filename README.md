@@ -28,9 +28,8 @@ A simple IntelliJ IDEA / Android Studio plugin to create a text file with the fo
 - [ ] Click the <kbd>Watch</kbd> button on the top of the [IntelliJ Platform Plugin Template][template] to be notified about releases containing new features and fixes.
 
 <!-- Plugin description -->
-This plugin helps you create a changelog file with a filename based on your current Git branch.
-
-It also lets you specify a template in settings.
+This plugin helps you create a changelog file with a filename based on your current Git branch and 
+the last commit message. It also lets you specify a template in settings.
 <!-- Plugin description end -->
 
 ## Installation
