@@ -1,6 +1,5 @@
 package com.afzaln.changelogcreator.actions
 
-import com.afzaln.changelogcreator.components.AppSettingsComponent
 import com.afzaln.changelogcreator.settings.ChangelogSettings
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
@@ -10,14 +9,19 @@ import com.intellij.openapi.vcs.FilePath
 import com.intellij.openapi.vcs.LocalFilePath
 import com.intellij.openapi.vfs.VfsUtil
 import com.intellij.openapi.vfs.VirtualFile
+import com.intellij.vcs.log.VcsLogProvider
+import com.intellij.vcs.log.impl.TimedVcsCommitImpl
+import com.intellij.vcs.log.visible.filters.VcsLogFilterObject
+import git4idea.GitCommit
 import git4idea.GitUtil
-import git4idea.history.GitCommitRequirements
+import git4idea.GitVcs
 import git4idea.history.GitHistoryUtils
-import git4idea.history.GitLogUtil
+import git4idea.log.GitLogProvider
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
 import java.io.File
+import java.nio.file.Paths
 
 class CreateChangelogAction : AnAction() {
     override fun actionPerformed(event: AnActionEvent) {
@@ -26,14 +30,14 @@ class CreateChangelogAction : AnAction() {
             runAction(project)
         } catch (e: Exception) {
             print(e.stackTraceToString())
-            throw e;
+            throw e
         }
     }
 
     private fun runAction(project: Project) {
         val baseProjectPath = requireNotNull(project.basePath)
         print(baseProjectPath)
-        val isVcs = GitUtil.isGitRoot(baseProjectPath)
+        val isVcs = GitUtil.isGitRoot(Paths.get(baseProjectPath))
         if (!isVcs) {
             print("File not under VCS")
             return
@@ -45,7 +49,8 @@ class CreateChangelogAction : AnAction() {
                 val repo = GitUtil.getRepositoryForFile(project, path)
                 val currentBranch = requireNotNull(repo.currentBranch)
                 val filename = currentBranch.name
-                val lastCommitMessage = getLastCommitMessage(project, LocalFilePath(baseProjectPath, true))
+                val lastCommitMessage =
+                    getLastCommitMessage(project, LocalFilePath(baseProjectPath, true))
                 createChangelogFile(baseProjectPath, filename, lastCommitMessage)
             }
         }
@@ -55,16 +60,52 @@ class CreateChangelogAction : AnAction() {
         editor.openFile(virtualFile, true, true)
     }
 
-    @Suppress("UnstableApiUsage")
     private fun getLastCommitMessage(project: Project, filePath: FilePath): String {
+        val gitVcs = VcsLogProvider.LOG_PROVIDER_EP.getExtensions(project).firstOrNull { provider ->
+            provider.supportedVcs == GitVcs.getKey()
+        } as GitLogProvider? ?: return ""
+
+        val lastCommitMessageForBranch = getLastCommitMessageFromBranch(gitVcs, project, filePath)
+        val lastCommitMessage = lastCommitMessageForBranch.ifEmpty {
+            getLastCommitMessageForRepo(gitVcs, project, filePath)
+        }
+
+        return lastCommitMessage
+    }
+
+    private fun getLastCommitMessageForRepo(
+        gitVcs: GitLogProvider,
+        project: Project,
+        filePath: FilePath,
+    ): String {
         val commitHash = GitHistoryUtils.getLastRevision(project, filePath)?.number.toString()
-        var lastCommitMessage = ""
-        GitLogUtil.readFullDetailsForHashes(
-            project,
+        return getCommitMessageFromHash(gitVcs, filePath, commitHash)
+    }
+
+    private fun getLastCommitMessageFromBranch(
+        gitVcs: GitLogProvider,
+        project: Project,
+        filePath: FilePath,
+    ): String {
+        val repository = GitUtil.getRepositoryForFile(project, filePath)
+        val branchName = repository.currentBranch?.name ?: return ""
+
+        val matchingCommits = gitVcs.getCommitsMatchingFilter(
             filePath.virtualFile!!,
-            listOf(commitHash),
-            GitCommitRequirements.DEFAULT
-        ) {
+            VcsLogFilterObject.collection(VcsLogFilterObject.fromBranch(branchName)), 1
+        )
+        val commit = matchingCommits.firstOrNull() as TimedVcsCommitImpl? ?: return ""
+
+        return getCommitMessageFromHash(gitVcs, filePath, commit.id.asString())
+    }
+
+    private fun getCommitMessageFromHash(
+        gitVcs: GitLogProvider,
+        filePath: FilePath,
+        commitHash: String,
+    ): String {
+        var lastCommitMessage = ""
+        gitVcs.readFullDetails(filePath.virtualFile!!, listOf(commitHash)) {
             lastCommitMessage = it.fullMessage
         }
 
