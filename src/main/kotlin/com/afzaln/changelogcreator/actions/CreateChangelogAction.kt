@@ -12,7 +12,6 @@ import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.vcs.log.VcsLogProvider
 import com.intellij.vcs.log.impl.TimedVcsCommitImpl
 import com.intellij.vcs.log.visible.filters.VcsLogFilterObject
-import git4idea.GitCommit
 import git4idea.GitUtil
 import git4idea.GitVcs
 import git4idea.history.GitHistoryUtils
@@ -65,15 +64,15 @@ class CreateChangelogAction : AnAction() {
             provider.supportedVcs == GitVcs.getKey()
         } as GitLogProvider? ?: return ""
 
-        val lastCommitMessageForBranch = getLastCommitMessageFromBranch(gitVcs, project, filePath)
-        val lastCommitMessage = lastCommitMessageForBranch.ifEmpty {
-            getLastCommitMessageForRepo(gitVcs, project, filePath)
+        val currentBranchLastCommitMessage = getCurrentBranchLastCommitMessage(gitVcs, project, filePath)
+        val lastCommitMessage = currentBranchLastCommitMessage.ifEmpty {
+            getRepoLastCommitMessage(gitVcs, project, filePath)
         }
 
         return lastCommitMessage
     }
 
-    private fun getLastCommitMessageForRepo(
+    private fun getRepoLastCommitMessage(
         gitVcs: GitLogProvider,
         project: Project,
         filePath: FilePath,
@@ -82,7 +81,7 @@ class CreateChangelogAction : AnAction() {
         return getCommitMessageFromHash(gitVcs, filePath, commitHash)
     }
 
-    private fun getLastCommitMessageFromBranch(
+    private fun getCurrentBranchLastCommitMessage(
         gitVcs: GitLogProvider,
         project: Project,
         filePath: FilePath,
