@@ -1,8 +1,8 @@
 # create-changelog-intellij-plugin
 
 ![Build](https://github.com/AfzalivE/create-changelog-intellij-plugin/workflows/Build/badge.svg)
-[![Version](https://img.shields.io/jetbrains/plugin/v/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/PLUGIN_ID)
-[![Downloads](https://img.shields.io/jetbrains/plugin/d/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/PLUGIN_ID)
+[![Version](https://img.shields.io/jetbrains/plugin/v/24100-create-changelog-file.svg)](https://plugins.jetbrains.com/plugin/24100-create-changelog-file)
+[![Downloads](https://img.shields.io/jetbrains/plugin/d/24100-create-changelog-file.svg)](https://plugins.jetbrains.com/plugin/24100-create-changelog-file)
 
 A simple IntelliJ IDEA / Android Studio plugin to create a text file with the following characteristics:
 1. In the `changelog` folder in the root project folder.
