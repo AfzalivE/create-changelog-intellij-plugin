@@ -44,6 +44,9 @@ the last commit message. It also lets you specify a template in settings.
   Download the [latest release](https://github.com/AfzalivE/create-changelog-intellij-plugin/releases/latest) and install it manually using
   <kbd>Settings/Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>⚙️</kbd> > <kbd>Install plugin from disk...</kbd>
 
+## Releasing a new version
+
+- Create a tag with prereleased or released properties on GitHub. release.yml will kick off.
 
 ---
 Plugin based on the [IntelliJ Platform Plugin Template][template].
