@@ -6,7 +6,7 @@ import org.jetbrains.intellij.platform.gradle.TestFrameworkType
 plugins {
     id("java") // Java support
     alias(libs.plugins.kotlin) // Kotlin support
-    alias(libs.plugins.intelliJPlatform) // Gradle IntelliJ Plugin
+    alias(libs.plugins.intelliJPlatform) // IntelliJ Platform Gradle Plugin
     alias(libs.plugins.changelog) // Gradle Changelog Plugin
     alias(libs.plugins.qodana) // Gradle Qodana Plugin
     alias(libs.plugins.kover) // Gradle Kover Plugin
@@ -58,8 +58,9 @@ kotlin {
 
 // Configure IntelliJ Platform Gradle Plugin - read more: https://plugins.jetbrains.com/docs/intellij/tools-intellij-platform-gradle-plugin-extension.html
 intellijPlatform {
+    projectName = providers.gradleProperty("pluginName").get()
+
     pluginConfiguration {
-        name = providers.gradleProperty("pluginName")
         version = providers.gradleProperty("platformVersion")
 
         // Extract the <!-- Plugin description --> section from README.md and provide for the plugin's manifest
@@ -137,6 +138,14 @@ kover {
 tasks {
     wrapper {
         gradleVersion = providers.gradleProperty("gradleVersion").get()
+    }
+
+    patchPluginXml {
+        version = providers.gradleProperty("pluginVersion").get()
+    }
+
+    buildPlugin {
+        dependsOn(patchPluginXml)
     }
 
     publishPlugin {

@@ -12,7 +12,6 @@ import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.vcs.log.VcsLogProvider
 import com.intellij.vcs.log.graph.PermanentGraph
 import com.intellij.vcs.log.impl.TimedVcsCommitImpl
-import com.intellij.vcs.log.util.GraphOptionsUtil
 import com.intellij.vcs.log.visible.filters.VcsLogFilterObject
 import git4idea.GitUtil
 import git4idea.GitVcs
