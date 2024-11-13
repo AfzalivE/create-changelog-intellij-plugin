@@ -1,9 +1,9 @@
 package com.afzaln.changelogcreator.services
 
+import com.afzaln.changelogcreator.MyBundle
 import com.intellij.openapi.components.Service
 import com.intellij.openapi.diagnostic.thisLogger
 import com.intellij.openapi.project.Project
-import com.afzaln.changelogcreator.MyBundle
 
 @Service(Service.Level.PROJECT)
 class MyProjectService(project: Project) {

@@ -10,6 +10,7 @@ import com.intellij.openapi.vcs.LocalFilePath
 import com.intellij.openapi.vfs.VfsUtil
 import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.vcs.log.VcsLogProvider
+import com.intellij.vcs.log.graph.PermanentGraph
 import com.intellij.vcs.log.impl.TimedVcsCommitImpl
 import com.intellij.vcs.log.visible.filters.VcsLogFilterObject
 import git4idea.GitUtil
@@ -91,7 +92,10 @@ class CreateChangelogAction : AnAction() {
 
         val matchingCommits = gitVcs.getCommitsMatchingFilter(
             filePath.virtualFile!!,
-            VcsLogFilterObject.collection(VcsLogFilterObject.fromBranch(branchName)), 1
+            VcsLogFilterObject.collection(VcsLogFilterObject.fromBranch(branchName)),
+            // TODO(Afzal): Investigate best option.
+            PermanentGraph.Options.Default,
+            1
         )
         val commit = matchingCommits.firstOrNull() as TimedVcsCommitImpl? ?: return ""
 
