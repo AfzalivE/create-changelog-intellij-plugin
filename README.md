@@ -46,6 +46,7 @@ the last commit message. It also lets you specify a template in settings.
 
 ## Releasing a new version
 
+- Increment plugin version in gradle.properties
 - Create a tag with prereleased or released properties on GitHub. release.yml will kick off.
 
 ---
