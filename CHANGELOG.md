@@ -4,15 +4,18 @@
 
 ## [Unreleased]
 
-## [0.0.6] - 2024-11-13
+## [0.0.6] - 2024-11-14
 
 Add support for IJ 243.x (AS Meerkat). Note that this version only supports 242+. Older versions should be fine for 241 and below.
 
-- Bump gradle/actions from 3 to 4 by @dependabot in https://github.com/AfzalivE/create-changelog-intellij-plugin/pull/36
-- Bump JetBrains/qodana-action from 2024.1.8 to 2024.1.9 by @dependabot in https://github.com/AfzalivE/create-changelog-intellij-plugin/pull/37
-- Bump JetBrains/qodana-action from 2024.1.9 to 2024.2.6 by @dependabot in https://github.com/AfzalivE/create-changelog-intellij-plugin/pull/46
-- Migrate to IntelliJ Platform 2.0.0 plugin and platformVersion 2024.2 by @AfzalivE in https://github.com/AfzalivE/create-changelog-intellij-plugin/pull/35
-- Update Kotlin and Annotations dependencies
+
+## What's Changed
+* Bump gradle/actions from 3 to 4 by @dependabot in https://github.com/AfzalivE/create-changelog-intellij-plugin/pull/36
+* Bump JetBrains/qodana-action from 2024.1.8 to 2024.1.9 by @dependabot in https://github.com/AfzalivE/create-changelog-intellij-plugin/pull/37
+* Bump JetBrains/qodana-action from 2024.1.9 to 2024.2.6 by @dependabot in https://github.com/AfzalivE/create-changelog-intellij-plugin/pull/46
+* Migrate to IntelliJ Platform 2.0.0 plugin and platformVersion 2024.2 by @AfzalivE in https://github.com/AfzalivE/create-changelog-intellij-plugin/pull/35
+* Bump org.jetbrains.kotlin.jvm from 2.0.10 to 2.0.21 by @dependabot in https://github.com/AfzalivE/create-changelog-intellij-plugin/pull/50
+* Update IntelliJ Platform to 2.0.1
 
 ## [0.0.5] - 2024-08-07
 
