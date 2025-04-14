@@ -9,7 +9,7 @@
 Add support for IJ 243.x (AS Meerkat). Note that this version only supports 242+. Older versions should be fine for 241 and below.
 
 
-## What's Changed
+### What's Changed
 * Bump gradle/actions from 3 to 4 by @dependabot in https://github.com/AfzalivE/create-changelog-intellij-plugin/pull/36
 * Bump JetBrains/qodana-action from 2024.1.8 to 2024.1.9 by @dependabot in https://github.com/AfzalivE/create-changelog-intellij-plugin/pull/37
 * Bump JetBrains/qodana-action from 2024.1.9 to 2024.2.6 by @dependabot in https://github.com/AfzalivE/create-changelog-intellij-plugin/pull/46
