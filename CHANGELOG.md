@@ -4,6 +4,12 @@
 
 ## [Unreleased]
 
+## [0.0.8] - 2026-03-16
+
+- Bump codecov/codecov-action from 4 to 5 by @dependabot[bot] in https://github.com/AfzalivE/create-changelog-intellij-plugin/pull/51
+- Bump org.gradle.toolchains.foojay-resolver-convention from 0.8.0 to 0.9.0 by @dependabot[bot] in https://github.com/AfzalivE/create-changelog-intellij-plugin/pull/53
+- Add support for 261.* and plugin version to 0.0.8 by @AfzalivE in https://github.com/AfzalivE/create-changelog-intellij-plugin/pull/66
+
 ## [0.0.7] - 2025-04-14
 
 ### What's Changed
@@ -54,7 +60,8 @@ Add support for IJ 243.x (AS Meerkat). Note that this version only supports 242+
 
 - Initial scaffold created from [IntelliJ Platform Plugin Template](https://github.com/JetBrains/intellij-platform-plugin-template)
 
-[Unreleased]: https://github.com/AfzalivE/create-changelog-intellij-plugin/compare/v0.0.7...HEAD
+[Unreleased]: https://github.com/AfzalivE/create-changelog-intellij-plugin/compare/v0.0.8...HEAD
+[0.0.8]: https://github.com/AfzalivE/create-changelog-intellij-plugin/compare/v0.0.7...v0.0.8
 [0.0.7]: https://github.com/AfzalivE/create-changelog-intellij-plugin/compare/v0.0.6...v0.0.7
 [0.0.6]: https://github.com/AfzalivE/create-changelog-intellij-plugin/compare/v0.0.5...v0.0.6
 [0.0.5]: https://github.com/AfzalivE/create-changelog-intellij-plugin/compare/v0.0.4...v0.0.5
