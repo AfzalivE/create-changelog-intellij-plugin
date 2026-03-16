@@ -28,7 +28,7 @@ repositories {
 dependencies {
     implementation(libs.annotations)
     testImplementation(libs.junit)
-    testImplementation("org.opentest4j:opentest4j:1.3.0")
+    testImplementation(libs.opentest4j)
 
     intellijPlatform {
         create(
